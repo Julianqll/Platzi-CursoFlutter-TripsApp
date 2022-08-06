@@ -1,6 +1,6 @@
-# platzi_trips_app
+# Platzi - Curso de Flutter
 
-Platzi Project - 01
+Platzi Trips App
 
 ## Getting Started
 
