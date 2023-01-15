@@ -14,10 +14,10 @@ class CardImageList extends StatelessWidget {
         scrollDirection: Axis.horizontal, //cambiando a scroll horizontal
         children: [
           CardImage("assets/images/beach.jpeg"),
-          CardImage("assets/images/beach_palm.jpeg"),
+          CardImage("assets/images/beachPalm.jpeg"),
           CardImage("assets/images/mountain.jpeg"),
           CardImage("assets/images/river.jpeg"),
-          CardImage("assets/images/mountain_stars.jpeg"),
+          CardImage("assets/images/mountainStars.jpeg"),
           CardImage("assets/images/sunset.jpeg"),
         ],
       ),
