@@ -19,7 +19,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
-      home: PlatziTrips()
+      home: Scaffold(
+        body: PlatziTrips(),
+      )
     ), 
       bloc: UserBloc());
   }
