@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:platzi_trips_app/card_image_list.dart';
-import 'package:platzi_trips_app/gradient.dart';
+import 'package:platzi_trips_app/Place/ui/widgets/card_image_list.dart';
+import 'package:platzi_trips_app/widgets/gradient.dart';
 
 class HeaderAppBar extends StatelessWidget {
   const HeaderAppBar({Key? key}) : super(key: key);

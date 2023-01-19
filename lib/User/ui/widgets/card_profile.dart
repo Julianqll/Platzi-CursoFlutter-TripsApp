@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:platzi_trips_app/floating_action_button_green.dart';
+import 'package:platzi_trips_app/Place/model/place.dart';
+import 'package:platzi_trips_app/widgets/floating_action_button_green.dart';
 
 class CardProfile extends StatelessWidget {
-  final String image;
-  final String name;
-  final String description;
-  final String steps;
+  final Place place;
 
-  const CardProfile({super.key, required this.image, required this.name, required this.description, required this.steps});
+  const CardProfile({super.key, required this.place});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +20,7 @@ class CardProfile extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage(image),
+          image: NetworkImage(place.image),
           fit: BoxFit.cover,
         ),
         borderRadius: const BorderRadius.all(Radius.circular(20)), //bordes redondeados
@@ -64,7 +62,7 @@ class CardProfile extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 5,bottom: 10),
-              child: Text(name,
+              child: Text(place.name,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16
@@ -72,12 +70,12 @@ class CardProfile extends StatelessWidget {
               ),),
             Padding(
               padding: const EdgeInsets.only(bottom: 10),
-              child: Text(description,
+              child: Text(place.description,
                 overflow: TextOverflow.clip,
                 style: const TextStyle(
                   fontSize: 10
                 ),),),
-            Text("Steps  $steps", 
+            Text("Steps  ${place.steps}", 
               style: TextStyle(
                 color: Colors.amber.shade700,
                 fontSize: 13.5,
