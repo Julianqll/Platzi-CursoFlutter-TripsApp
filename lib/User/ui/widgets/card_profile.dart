@@ -56,7 +56,7 @@ class CardProfile extends StatelessWidget {
         ]
       ),
       child: Padding(
-        padding: const EdgeInsets.only(top:15.0, bottom:15, left: 20, right: 25),
+        padding: const EdgeInsets.only(top:7.0, bottom:7, left: 20, right: 25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
