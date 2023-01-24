@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
+import 'package:platzi_trips_app/User/bloc/bloc_user.dart';
 import 'package:platzi_trips_app/widgets/button_green.dart';
 import 'package:platzi_trips_app/widgets/gradient.dart';
 
@@ -11,8 +14,11 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
 
+  late UserBloc userBloc;
+
   @override
   Widget build(BuildContext context) {
+    userBloc = BlocProvider.of(context);
     return signInGoogleUI();
   }
 
@@ -34,7 +40,14 @@ class _SignInScreenState extends State<SignInScreen> {
                   color: Colors.white,
                   fontWeight: FontWeight.bold,)
               ),
-              ButtonGreen(width: 300, height: 50, text: "Login with Google", onPressed: ()=>{})
+              ButtonGreen(
+                width: 300, 
+                height: 50, 
+                text: "Login with Google", 
+                onPressed: (){
+                  userBloc.signIn().then((User user) => print("El usuario es ${user.displayName}"));
+                }
+              )
             ]
           )
         ]
