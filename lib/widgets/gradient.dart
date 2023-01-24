@@ -39,11 +39,14 @@ class GradientBack extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          Spacer(),
-          Icon(Icons.brightness_5,
-          size: 15,
-          color: Colors.white,)
-            ],
+          title == "Bienvenido" ? Spacer() : const SizedBox(width: 0,),
+          title == "Bienvenido" ? 
+          const Icon(
+            Icons.brightness_5,
+            size: 15,
+            color: Colors.white,) 
+          : const SizedBox(width: 0,)
+          ],
         ),
       )
       :Text(
