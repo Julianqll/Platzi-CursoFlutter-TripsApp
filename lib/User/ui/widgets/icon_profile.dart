@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
 
 class IconProfile extends StatelessWidget {
+  final VoidCallback? onTapped;
   final IconData icono;
   final bool big;
   final bool available;
-  const IconProfile({super.key, required this.icono, required this.big, required this.available});
+  const IconProfile({super.key, required this.icono, required this.big, required this.available, required this.onTapped});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: available ? () => {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Botón presionado"),
-          ),
-        )
-      } : null,
+      onTap: available ? onTapped : null,
       child: Container(
         width: big ? 60 :40,
         height: big ? 60: 40,
