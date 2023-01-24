@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:platzi_trips_app/User/bloc/bloc_user.dart';
+import 'package:platzi_trips_app/User/ui/screens/sign_in_screen.dart';
 import 'package:platzi_trips_app/platzi_trips.dart';
 
 void main() {
@@ -19,9 +20,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
-      home: Scaffold(
-        body: PlatziTrips(),
-      )
+      home: SignInScreen()
+      //Scaffold(
+      //  body: PlatziTrips(),
+      //)
     ), 
       bloc: UserBloc());
   }

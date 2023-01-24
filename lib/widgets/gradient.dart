@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class GradientBack extends StatelessWidget {
 
   String title = "Popular";
-  double height = 250;
+  double? height = 250;
 
   GradientBack(this.title, this.height, {Key? key}) : super(key: key);
 
@@ -25,7 +25,7 @@ class GradientBack extends StatelessWidget {
           tileMode: TileMode.clamp,
         )
       ),
-      child: height > 250 ? 
+      child: (height ?? 1000) > 250 ? 
       Padding(
         padding: const EdgeInsets.only(right: 12, left: 12),
         child: Row(
@@ -55,7 +55,7 @@ class GradientBack extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      alignment: height > 250 ? Alignment(-0.9,-0.765) : Alignment(-0.9,-0.6) ,
+      alignment: (height ?? 1000) > 250 ? Alignment(-0.9,-0.765) : Alignment(-0.9,-0.6) ,
     );
   }
 }
