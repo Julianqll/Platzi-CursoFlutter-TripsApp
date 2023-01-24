@@ -1,11 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
+import 'package:platzi_trips_app/User/bloc/bloc_user.dart';
+
+import '../../model/user.dart';
 
 class ProfileInfo extends StatelessWidget {
-  const ProfileInfo({super.key});
+  late UserBloc userBloc;
+  ProfileInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
-  return Row(
+  
+  userBloc = BlocProvider.of(context);
+
+  return StreamBuilder(
+    stream: userBloc.streamFirebase,
+    builder: (BuildContext context, AsyncSnapshot snapshot){
+      switch(snapshot.connectionState){
+        case ConnectionState.waiting:
+          return const CircularProgressIndicator();
+        case ConnectionState.none:
+          return const CircularProgressIndicator();
+        case ConnectionState.active:
+          return showProfileInfo(snapshot);
+        case ConnectionState.done:
+          return showProfileInfo(snapshot);
+      }
+    });
+  }
+}
+
+Widget showProfileInfo(AsyncSnapshot snapshot){
+    if (!snapshot.hasData || snapshot.hasError){
+      print("No logueado");
+      return Column(
+          children: const [
+            CircularProgressIndicator(),
+            Text("No se pudo cargar la informacion. Haz login")
+          ],
+    );
+    }
+    else{
+      print("Logueado");
+      User user = User(
+        name: snapshot.data.displayName, 
+        email: snapshot.data.email, 
+        photoURL: snapshot.data.photoURL
+      );
+      return Row(
           children: [
             Container(
                   margin: const EdgeInsets.only(
@@ -16,17 +58,17 @@ class ProfileInfo extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.white, width: 2),
                     shape: BoxShape.circle,
-                    image: const DecorationImage(
+                    image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: NetworkImage("https://i.pinimg.com/736x/66/23/02/662302d2dcfc2c34405dea1e429f0c74.jpg")),
+                      image: NetworkImage(user.photoURL)),
                   )
                 ),
                 Stack(
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 25),
-                      child: Text("Pathum Tzoo",
-                      style: TextStyle(
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 25),
+                      child: Text(user.name,
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.bold
@@ -35,7 +77,7 @@ class ProfileInfo extends StatelessWidget {
                     ), 
                       Padding(
                       padding: const EdgeInsets.only(top:25),
-                      child: Text("pathumtzoo1@gmail.com",
+                      child: Text(user.email,
                       style: TextStyle(
                         color: Colors.grey.shade400
                       ),),
@@ -44,5 +86,6 @@ class ProfileInfo extends StatelessWidget {
                 )
           ],
     );
+
+    }
   }
-}

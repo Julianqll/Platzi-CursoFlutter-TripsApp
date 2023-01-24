@@ -20,10 +20,10 @@ class IconMenu extends StatelessWidget {
       IconProfile(icono: Icons.vpn_key, big: false, available: false, onTapped: null,),
 
       //TODO: Añadir nuevo lugar
-      IconProfile(icono: Icons.add, big: false, available: false, onTapped: null,),
+      IconProfile(icono: Icons.add, big: true, available: false, onTapped: null,),
 
       //TODO: Cerrar Sesion
-      IconProfile(icono: Icons.exit_to_app, big: true, available: true, onTapped: ()=>{
+      IconProfile(icono: Icons.exit_to_app, big: false, available: true, onTapped: ()=>{
         userBloc.signOut()
       },),
     ],

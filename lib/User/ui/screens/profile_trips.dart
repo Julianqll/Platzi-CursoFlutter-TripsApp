@@ -41,7 +41,7 @@ class ProfileTrips extends StatelessWidget {
         Container(
           padding: const EdgeInsets.only(right: 50, left: 50),
           height: 300,
-          child: const ProfileInfo(),
+          child: ProfileInfo(),
         ),
         Container(
           padding: const EdgeInsets.only(right: 30, left: 30, top: 200),
