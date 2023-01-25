@@ -11,7 +11,39 @@ class GradientBack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Stack(
+      children: [
+        Gradient(title,height),
+      ClipPath(
+        clipper: TsClip2(),
+        child: Container(
+          color: Colors.white.withOpacity(0.05),
+          height: height,
+        ))
+      ],
+    );
+  }
+}
+
+class TsClip2 extends CustomClipper<Path> {
+   @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0.0, size.height);
+    path.lineTo(size.width/4, size.height);
+    path.quadraticBezierTo(size.width/4, size.height- 3*size.height/4, size.width, 0);
+    path.lineTo(size.width, 0.0);
+    path.close();
+    return path;
+  }
+@override
+   bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+     return false;
+   }
+ }
+
+Widget Gradient(String title, double? height){
+  return Container(
       height: height,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -60,5 +92,4 @@ class GradientBack extends StatelessWidget {
       ),
       alignment: (height ?? 1000) > 250 ? Alignment(-0.9,-0.765) : Alignment(-0.9,-0.6) ,
     );
-  }
 }

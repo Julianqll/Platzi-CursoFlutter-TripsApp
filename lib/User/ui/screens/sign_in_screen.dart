@@ -50,12 +50,18 @@ class _SignInScreenState extends State<SignInScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children:
             [
-              const Text("Welcome \n This is your Travel App",
-                style: TextStyle(
-                  fontSize: 37,
-                  fontFamily: 'Lato',
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,)
+              Flexible(
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  width: MediaQuery.of(context).size.width,
+                  child: const Text("Welcome \n This is your Travel App",
+                    style: TextStyle(
+                      fontSize: 37,
+                      fontFamily: 'Lato',
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,)
+              )
+                )
               ),
               ButtonGreen(
                 width: 300, 
