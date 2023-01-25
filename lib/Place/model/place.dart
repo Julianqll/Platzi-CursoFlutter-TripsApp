@@ -1,8 +1,18 @@
+import 'package:platzi_trips_app/User/model/user.dart';
+
 class Place{
-  String image;
+  String? id;
   String name;
   String description;
-  String steps;
+  String imageURL;
+  int? likes;
+  //User placeOwner;
 
-  Place(this.image, this.name, this.description, this.steps);
+  Place({
+    required this.name,
+    required this.description,
+    required this.imageURL,
+    this.likes,
+    //required this.placeOwner
+  });
 }

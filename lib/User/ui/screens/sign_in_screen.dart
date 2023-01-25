@@ -5,6 +5,8 @@ import 'package:platzi_trips_app/User/bloc/bloc_user.dart';
 import 'package:platzi_trips_app/platzi_trips.dart';
 import 'package:platzi_trips_app/widgets/button_green.dart';
 import 'package:platzi_trips_app/widgets/gradient.dart';
+import 'package:platzi_trips_app/User/model/user.dart' as usermodel;
+
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -60,7 +62,14 @@ class _SignInScreenState extends State<SignInScreen> {
                 height: 50, 
                 text: "Login with Google", 
                 onPressed: (){
-                  userBloc.signIn().then((User user) => print("El usuario es ${user.displayName}"));
+                  userBloc.signIn().then((User user) {
+                    userBloc.updateUserData(usermodel.User(
+                      uid: user.uid,
+                      name: user.displayName ?? "",
+                      email: user.email ?? "",
+                      photoURL: user.photoURL ?? ""
+                    ));
+                  });
                 }
               )
             ]

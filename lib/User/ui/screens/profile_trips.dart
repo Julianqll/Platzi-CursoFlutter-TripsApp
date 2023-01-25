@@ -13,15 +13,15 @@ class ProfileTrips extends StatelessWidget {
   Widget build(BuildContext context) {
 
     Place first_place = Place(
-      "https://th.bing.com/th/id/OIP.Z306oZ55iUC8qxo1tD2EhAHaE8?pid=ImgDet&rs=1", 
-      "Knuckles Mountain Range",
-      "Hiking, Waterfall hunting, Natural bath, Scenery & Photography",
-      "123, 123, 123",);
+      name: "Knuckles Mountain Range",
+      description: "Hiking, Waterfall hunting, Natural bath, Scenery & Photography",
+      imageURL: "https://th.bing.com/th/id/OIP.Z306oZ55iUC8qxo1tD2EhAHaE8?pid=ImgDet&rs=1", 
+      likes: 0,);
     Place second_place = Place(
-      "https://th.bing.com/th/id/OIP.wb_9Q1TLtJQTu6-OcYSqGAHaEK?pid=ImgDet&rs=1", 
-      "Knuckles Mountain Range",
-      "Hiking, Waterfall hunting, Natural bath, Scenery & Photography",
-      "123, 123, 123",);
+      name:"Knuckles Mountain Range",
+      description: "Hiking, Waterfall hunting, Natural bath, Scenery & Photography",
+      imageURL: "https://th.bing.com/th/id/OIP.wb_9Q1TLtJQTu6-OcYSqGAHaEK?pid=ImgDet&rs=1",
+      likes: 0,);
 
     return Stack(
       children: [

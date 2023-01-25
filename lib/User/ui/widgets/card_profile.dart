@@ -20,7 +20,7 @@ class CardProfile extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage(place.image),
+          image: NetworkImage(place.imageURL),
           fit: BoxFit.cover,
         ),
         borderRadius: const BorderRadius.all(Radius.circular(20)), //bordes redondeados
@@ -75,7 +75,7 @@ class CardProfile extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 10
                 ),),),
-            Text("Steps  ${place.steps}", 
+            Text("Steps  ${place.likes}", 
               style: TextStyle(
                 color: Colors.amber.shade700,
                 fontSize: 13.5,
